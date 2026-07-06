@@ -2188,14 +2188,19 @@ function renderContact() {
             `).join("")}
           </section>
 
-          <form class="c2-form" action="mailto:642874975@qq.com" method="post" enctype="text/plain">
+          <form class="c2-form" action="https://formsubmit.co/ajax/642874975@qq.com" method="post">
             <h2>${icon("send")}发送消息</h2>
+            <input class="c2-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_subject" value="个人网站联系表单" />
             <div class="c2-form-row">
               <label>你的姓名<input name="name" placeholder="请输入你的姓名" /></label>
               <label>联系方式<input name="contact" placeholder="请输入你的电话或邮箱" /></label>
             </div>
             <label>沟通主题<select name="topic"><option>请选择沟通主题</option><option>AI 应用交付项目经理机会</option><option>RAG / Agent 项目交流</option><option>项目合作沟通</option></select></label>
             <label>留言内容<textarea name="message" placeholder="请简要描述你的业务背景、项目需求或合作方向..."></textarea></label>
+            <p class="c2-form-status" role="status" aria-live="polite"></p>
             <button type="submit">发送消息</button>
           </form>
 
@@ -2220,6 +2225,89 @@ function renderContact() {
     </section>
   `, "contact.html");
   requestAnimationFrame(scaleHomeCanvas);
+  setupContactForm();
+}
+
+function setContactFormStatus(form, message, state) {
+  const status = form.querySelector(".c2-form-status");
+  if (!status) {
+    return;
+  }
+  status.textContent = message;
+  status.dataset.state = state;
+}
+
+function validateContactForm(form) {
+  const data = new FormData(form);
+  const name = String(data.get("name") || "").trim();
+  const contact = String(data.get("contact") || "").trim();
+  const message = String(data.get("message") || "").trim();
+  const honey = String(data.get("_honey") || "").trim();
+
+  if (honey) {
+    return "提交异常，请刷新页面后重试。";
+  }
+  if (!name) {
+    return "请填写你的姓名。";
+  }
+  if (!contact) {
+    return "请填写电话或邮箱，方便我回复。";
+  }
+  if (message.length < 10) {
+    return "留言内容请至少填写 10 个字。";
+  }
+  if (message.length > 1000) {
+    return "留言内容请控制在 1000 个字以内。";
+  }
+  return "";
+}
+
+function setupContactForm() {
+  const form = document.querySelector(".c2-form");
+  if (!form) {
+    return;
+  }
+
+  const button = form.querySelector('button[type="submit"]');
+  const defaultButtonText = button?.textContent || "发送消息";
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const validationError = validateContactForm(form);
+    if (validationError) {
+      setContactFormStatus(form, validationError, "error");
+      return;
+    }
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = "发送中...";
+    }
+    setContactFormStatus(form, "正在发送，请稍候...", "pending");
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(`FormSubmit request failed: ${response.status}`);
+      }
+
+      form.reset();
+      setContactFormStatus(form, "消息已发送，我会尽快回复。", "success");
+    } catch (error) {
+      setContactFormStatus(form, "发送失败，请稍后重试或直接邮件联系。", "error");
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = defaultButtonText;
+      }
+    }
+  });
 }
 
 function renderDeliveryImageMatch() {
