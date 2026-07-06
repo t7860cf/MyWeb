@@ -96,9 +96,6 @@ svg {
   z-index: 1;
 }
 
-.prototype-layer {
-  display: none;
-}
 
 .site-header {
   position: sticky;
@@ -7637,9 +7634,6 @@ body.coze-real::after {
     overflow: hidden;
   }
 
-  body.has-prototype #app {
-    display: none;
-  }
 
   body.home-real #app {
     display: block;
@@ -7647,9 +7641,6 @@ body.coze-real::after {
     overflow: hidden;
   }
 
-  body.home-real .prototype-layer {
-    display: none;
-  }
 
   body.home-real .site-header {
     height: 84px;
@@ -8133,47 +8124,6 @@ body.coze-real::after {
     line-height: 1.42;
   }
 
-  .prototype-layer {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: grid;
-    place-items: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #020817;
-  }
-
-  .prototype-frame {
-    position: relative;
-    width: min(100vw, calc(100vh * var(--proto-ratio)));
-    height: min(100vh, calc(100vw / var(--proto-ratio)));
-    overflow: hidden;
-  }
-
-  .prototype-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-
-  .prototype-hotspot {
-    position: absolute;
-    display: block;
-    border: 0;
-    background: transparent;
-    color: transparent;
-    font-size: 0;
-    outline-offset: -2px;
-  }
-
-  .prototype-hotspot:focus-visible {
-    outline: 2px solid rgba(37, 217, 255, 0.62);
-  }
 }
 
 @media (max-width: 1300px) {
@@ -8217,9 +8167,6 @@ body.coze-real::after {
     display: block;
   }
 
-  .prototype-layer {
-    display: none;
-  }
 
   .planet-grid {
     display: none !important;

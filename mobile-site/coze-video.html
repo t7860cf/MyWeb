@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coze 视频优化工作流 | 蔡峰</title>
+    <meta name="description" content="蔡峰 Coze 视频优化工作流移动端详情页，展示 ASR、LLM 结构化、剪辑决策、字幕文档输出与人工复核。" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="mobile.css" />
+    <script src="../assets/lucide.min.js" defer></script>
+    <script src="mobile.js" defer></script>
+  </head>
+  <body>
+    <div class="mobile-shell">
+      <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">CF</span><span class="brand-copy"><strong>蔡峰</strong><small>AI 应用产品化与交付</small></span></a><button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu"></i></button></header>
+      <nav class="mobile-menu" id="mobile-menu" hidden><a href="index.html">首页</a><a href="projects.html">AI 项目</a><a href="pm-delivery.html">政企交付</a></nav>
+      <main class="mobile-main">
+        <div class="breadcrumb"><a href="projects.html"><i data-lucide="chevron-left"></i> AI 项目</a> / <strong>Coze 视频</strong></div>
+        <section class="page-hero case-hero">
+          <img class="hero-art" src="../assets/projects-slices/coze-hero-art-transparent.png" alt="" />
+          <h1><span>04</span>Coze 视频优化工作流</h1>
+          <em class="case-badge">多模态内容</em>
+          <p>基于 Coze 工作流与自建 Flask 后端，覆盖视频智能剪辑和视频转学习文档两类场景，串联 ASR、LLM 结构化、剪辑参数生成与 Markdown 输出。</p>
+        </section>
+        <section class="case-info"><span><b>角色</b><small>AI 应用项目经理</small></span><span><b>行业</b><small>内容生产 / 新媒体</small></span><span><b>状态</b><small>工作流验证与质量优化</small></span></section>
+        <nav class="directory-strip"><a href="#s1">01 业务场景</a><a href="#s2">02 目标边界</a><a href="#s3">03 工作流架构</a><a href="#s4">04 AI 参与方式</a><a href="#s5">05 当前问题</a><a href="#s6">06 复盘反思</a></nav>
+
+        <section class="case-section" id="s1">
+          <h2><span>01</span>业务场景</h2>
+          <p>面向视频学习与内容整理场景，需要把长视频快速转成候选剪辑、字幕和结构化学习文档，减少重复剪辑与笔记整理成本。</p>
+          <ul><li>视频智能剪辑需要从转录文本中识别候选片段</li><li>学习文档需要 ASR、LLM 结构化与 Markdown 输出</li><li>Coze 编排与自建后端需要兼顾效率、追踪和可恢复</li></ul>
+        </section>
+
+        <section class="case-section" id="s2">
+          <h2><span>02</span>目标边界</h2>
+          <div class="value-grid"><article><i data-lucide="scissors"></i><strong>智能剪辑</strong><p>生成转录、剪切建议、字幕与候选成片。</p></article><article><i data-lucide="file-text"></i><strong>学习文档</strong><p>将 ASR 文本整理为结构化 Markdown 文档。</p></article><article><i data-lucide="shield-check"></i><strong>人工兜底</strong><p>复杂语境、版权合规与最终发布需要人工确认。</p></article></div>
+        </section>
+
+        <section class="case-section" id="s3">
+          <h2><span>03</span>工作流架构</h2>
+          <div class="arch-flow"><article><span><i data-lucide="folder"></i></span><strong>素材输入</strong><small>视频链接 / 文件</small></article><article><span><i data-lucide="audio-lines"></i></span><strong>ASR 文本</strong><small>语音识别转写</small></article><article><span><i data-lucide="file-text"></i></span><strong>结构化整理</strong><small>主题章节提炼</small></article><article><span><i data-lucide="scissors"></i></span><strong>剪辑决策</strong><small>候选片段参数</small></article><article><span><i data-lucide="play-square"></i></span><strong>输出复核</strong><small>成片与文档</small></article></div>
+        </section>
+
+        <section class="case-section" id="s4">
+          <h2><span>04</span>AI 参与方式</h2>
+          <div class="case-row-list"><article><i data-lucide="audio-lines"></i><span><strong>语音识别</strong><small>ASR 将音频转写为文本，为后续理解与剪辑提供基础。</small></span><i data-lucide="chevron-right"></i></article><article><i data-lucide="scan-text"></i><span><strong>结构化整理</strong><small>LLM 将 ASR 文本整理为剪辑依据与学习文档大纲。</small></span><i data-lucide="chevron-right"></i></article><article><i data-lucide="captions"></i><span><strong>字幕与文档</strong><small>生成字幕、断句、段落结构和 Markdown 学习文档。</small></span><i data-lucide="chevron-right"></i></article></div>
+        </section>
+
+        <section class="case-section" id="s5">
+          <h2><span>05</span>当前问题</h2>
+          <div class="warning-grid"><article><i data-lucide="triangle-alert"></i><strong>LLM 乱剪辑</strong><p>模型可能误解语境，将非重点或错误时间段剪入。</p></article><article><i data-lucide="triangle-alert"></i><strong>时间轴校验</strong><p>停顿、插入语与重复内容仍需要人工校验关键帧。</p></article><article><i data-lucide="triangle-alert"></i><strong>人工确认</strong><p>重要内容的准确性、合规性与品牌表达需最终确认。</p></article></div>
+        </section>
+
+        <section class="case-section" id="s6">
+          <h2><span>06</span>复盘反思</h2>
+          <div class="reflection-grid"><article><i data-lucide="workflow"></i><strong>AI 擅长提升生产效率</strong><p>把素材提取、转写、结构化和候选输出自动化，释放人力做内容判断。</p></article><article><i data-lucide="refresh-cw"></i><strong>流程加人工复核是关键</strong><p>明确流程节点和人工复核点，才能在效率与质量之间取得平衡。</p></article></div>
+        </section>
+        <nav class="pager"><a href="pet-miniapp.html"><i data-lucide="chevron-left"></i>上一个<br />宠物店小程序</a><a href="pm-delivery.html">下一个<br />政企交付<i data-lucide="chevron-right"></i></a></nav>
+      </main>
+    </div>
+  </body>
+</html>

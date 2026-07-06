@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业级 RAG 知识资产平台 | 蔡峰</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="mobile.css" />
+    <script src="../assets/lucide.min.js" defer></script>
+    <script src="mobile.js" defer></script>
+  </head>
+  <body>
+    <div class="mobile-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark">CF</span><span class="brand-copy"><strong>蔡峰</strong><small>AI 应用产品化与交付</small></span></a>
+        <button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu"></i></button>
+      </header>
+      <nav class="mobile-menu" id="mobile-menu" hidden><a href="index.html">首页</a><a href="projects.html">AI 项目</a><a href="pm-delivery.html">政企交付</a></nav>
+      <main class="mobile-main">
+        <div class="breadcrumb"><a href="projects.html"><i data-lucide="chevron-left"></i> AI 项目</a> / <strong>企业级 RAG</strong></div>
+        <section class="page-hero case-hero">
+          <img class="hero-art" src="../assets/projects-slices/rag-hero-art-transparent.png" alt="" />
+          <h1><span>01</span>企业级 RAG 知识资产平台</h1>
+          <em class="case-badge">产品定义</em>
+          <p>面向企业知识资产沉淀，支持文档检索、知识问答、权限控制与溯源。</p>
+        </section>
+        <section class="case-info" aria-label="项目信息">
+          <span><b>角色</b><small>AI 应用项目经理</small></span>
+          <span><b>阶段</b><small>能力建设与持续评估</small></span>
+          <span><b>方向</b><small>RAG / 知识资产 / 权限管控</small></span>
+        </section>
+        <nav class="directory-strip" aria-label="页面目录">
+          <a href="#s1">01 业务场景</a><a href="#s2">02 AI 介入</a><a href="#s3">03 交付架构</a><a href="#s4">04 交付价值</a><a href="#s5">05 当前问题</a><a href="#s6">06 复盘反思</a>
+        </nav>
+        <section class="case-section" id="s1">
+          <h2><span>01</span>业务场景</h2>
+          <p>企业内部文档分散在多系统中，查找成本高、知识难以复用，缺乏统一的知识入口与可信答案来源。</p>
+          <ul><li>文档分散在网盘、OA、知识库等，检索效率低</li><li>员工重复提问，专家知识沉淀不充分</li><li>缺乏权限管控与来源追溯，存在安全与合规风险</li></ul>
+        </section>
+        <section class="case-section" id="s2">
+          <h2><span>02</span>AI 介入方式</h2>
+          <div class="case-row-list">
+            <article><i data-lucide="file-text"></i><span><strong>文档解析与分块</strong><small>支持多格式文档解析，按语义与结构进行智能分块。</small></span><i data-lucide="chevron-right"></i></article>
+            <article><i data-lucide="search"></i><span><strong>混合检索与 Rerank</strong><small>结合关键词检索与向量检索，使用重排模型提升相关性。</small></span><i data-lucide="chevron-right"></i></article>
+            <article><i data-lucide="message-square-text"></i><span><strong>问答生成与来源追溯</strong><small>基于大模型生成答案，展示引用来源与原文片段。</small></span><i data-lucide="chevron-right"></i></article>
+          </div>
+        </section>
+        <section class="case-section" id="s3">
+          <h2><span>03</span>交付架构</h2>
+          <div class="arch-flow">
+            <article><span><i data-lucide="upload"></i></span><strong>文档接入</strong><small>多源接入</small></article>
+            <article><span><i data-lucide="box"></i></span><strong>知识处理</strong><small>解析 / 分块</small></article>
+            <article><span><i data-lucide="database"></i></span><strong>向量检索</strong><small>混合检索</small></article>
+            <article><span><i data-lucide="bot"></i></span><strong>LLM 问答</strong><small>生成答案</small></article>
+            <article><span><i data-lucide="shield-check"></i></span><strong>来源追溯</strong><small>引用校验</small></article>
+          </div>
+        </section>
+        <section class="case-section" id="s4">
+          <h2><span>04</span>交付价值</h2>
+          <div class="value-grid">
+            <article><i data-lucide="rocket"></i><strong>检索效率提升</strong><p>更快找到所需信息，减少重复沟通与等待。</p></article>
+            <article><i data-lucide="scan-search"></i><strong>知识可追溯</strong><p>每条答案均可定位来源，透明可信，便于审计。</p></article>
+            <article><i data-lucide="shield"></i><strong>权限边界清晰</strong><p>按角色与部门权限控制，保障数据安全与合规。</p></article>
+          </div>
+        </section>
+        <section class="case-section" id="s5">
+          <h2><span>05</span>当前问题</h2>
+          <div class="warning-grid">
+            <article><i data-lucide="triangle-alert"></i><strong>长文档分块质量</strong><p>复杂表格、PDF 扫描件分块效果仍需优化。</p></article>
+            <article><i data-lucide="triangle-alert"></i><strong>召回评估体系</strong><p>缺少标准化评估指标，建议量化检索效果。</p></article>
+            <article><i data-lucide="triangle-alert"></i><strong>知识覆盖持续补充</strong><p>新知识未及时沉淀，存在覆盖盲区。</p></article>
+          </div>
+        </section>
+        <section class="case-section" id="s6">
+          <h2><span>06</span>复盘反思</h2>
+          <div class="reflection-grid">
+            <article><i data-lucide="refresh-cw"></i><strong>应用价值来自业务闭环</strong><p>从实际问题出发，结合流程与场景设计功能，才能真正提升效率与体验。</p></article>
+            <article><i data-lucide="monitor-up"></i><strong>RAG 需要持续评估</strong><p>数据质量、分块策略与检索效果需要不断迭代，形成可度量的改进闭环。</p></article>
+          </div>
+        </section>
+        <nav class="pager"><a href="projects.html"><i data-lucide="chevron-left"></i>上一页<br />AI 项目</a><a href="agentops.html">下一个<br />AgentOps<i data-lucide="chevron-right"></i></a></nav>
+      </main>
+    </div>
+  </body>
+</html>

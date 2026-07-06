@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>多 Agent 协作产品 | 蔡峰</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="mobile.css" />
+    <script src="../assets/lucide.min.js" defer></script>
+    <script src="mobile.js" defer></script>
+  </head>
+  <body>
+    <div class="mobile-shell">
+      <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">CF</span><span class="brand-copy"><strong>蔡峰</strong><small>AI 应用产品化与交付</small></span></a><button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu"></i></button></header>
+      <nav class="mobile-menu" id="mobile-menu" hidden><a href="index.html">首页</a><a href="projects.html">AI 项目</a><a href="pm-delivery.html">政企交付</a></nav>
+      <main class="mobile-main">
+        <div class="breadcrumb"><a href="projects.html"><i data-lucide="chevron-left"></i> AI 项目</a> / <strong>AgentOps</strong></div>
+        <section class="page-hero case-hero"><img class="hero-art" src="../assets/projects-slices/agent-hero-art-prototype.png" alt="" /><h1 class="title-fit"><span>02</span>多 Agent 协作产品</h1><em class="case-badge">技术方案</em><p>PM Agent 调度多 Agent，串联需求分析、设计、开发、测试与交付过程。</p></section>
+        <section class="case-info"><span><b>角色</b><small>AI 应用产品项目经理</small></span><span><b>阶段</b><small>产品机制验证与迭代</small></span><span><b>方向</b><small>多 Agent 编排 / 任务协同</small></span></section>
+        <nav class="directory-strip"><a href="#s1">01 业务场景</a><a href="#s2">02 Agent 分工</a><a href="#s3">03 状态观测</a><a href="#s4">04 结果校验</a><a href="#s5">05 当前问题</a><a href="#s6">06 复盘反思</a></nav>
+        <section class="case-section" id="s1"><h2><span>01</span>业务场景</h2><p>个人开发者和小型项目团队在 AI 辅助交付时，经常遇到需求拆解、上下文管理、任务状态跟踪和结果复核成本高的问题。</p><ul><li>任务拆解粒度不稳定，执行结果难追踪</li><li>多个 Agent 职责边界不清晰，容易重复或遗漏</li><li>缺少执行过程观测与失败样本沉淀</li></ul></section>
+        <section class="case-section" id="s2"><h2><span>02</span>Agent 分工</h2><div class="case-row-list"><article><i data-lucide="sparkles"></i><span><strong>Planner</strong><small>理解需求，拆解任务，制定执行计划与依赖关系。</small></span><i data-lucide="chevron-right"></i></article><article><i data-lucide="search"></i><span><strong>Research Agent</strong><small>检索信息、提炼要点，形成结构化资料。</small></span><i data-lucide="chevron-right"></i></article><article><i data-lucide="shield-check"></i><span><strong>Review Agent</strong><small>审核内容准确性、完整性与表达质量。</small></span><i data-lucide="chevron-right"></i></article></div></section>
+        <section class="case-section" id="s3"><h2><span>03</span>状态观测</h2><div class="arch-flow"><article><span><i data-lucide="user"></i></span><strong>用户任务</strong><small>提交需求</small></article><article><span><i data-lucide="clipboard-list"></i></span><strong>Planner</strong><small>任务拆解</small></article><article><span><i data-lucide="bot"></i></span><strong>Agent</strong><small>执行反馈</small></article><article><span><i data-lucide="activity"></i></span><strong>事件流</strong><small>SSE 观测</small></article><article><span><i data-lucide="package-check"></i></span><strong>输出校验</strong><small>确认交付</small></article></div></section>
+        <section class="case-section" id="s4"><h2><span>04</span>结果校验</h2><div class="value-grid"><article><i data-lucide="shield-check"></i><strong>内容质量</strong><p>要点覆盖、逻辑连贯、表达清晰。</p></article><article><i data-lucide="boxes"></i><strong>结构规范</strong><p>格式统一、章节完整、引用合规。</p></article><article><i data-lucide="file-check-2"></i><strong>合规检查</strong><p>敏感内容识别，引用来源有效性检查。</p></article></div></section>
+        <section class="case-section" id="s5"><h2><span>05</span>当前问题</h2><div class="warning-grid"><article><i data-lucide="triangle-alert"></i><strong>任务拆解粒度</strong><p>部分任务拆解粒度不足，导致执行效果不稳定。</p></article><article><i data-lucide="triangle-alert"></i><strong>领域知识覆盖</strong><p>特定领域检索覆盖不全，影响资料质量。</p></article><article><i data-lucide="triangle-alert"></i><strong>人工介入时机</strong><p>复杂任务中人工确认节点仍需进一步优化。</p></article></div></section>
+        <section class="case-section" id="s6"><h2><span>06</span>复盘反思</h2><div class="reflection-grid"><article><i data-lucide="git-branch"></i><strong>先明确交付物</strong><p>明确目标交付物与验收标准，再反推子任务。</p></article><article><i data-lucide="refresh-cw"></i><strong>失败样本很重要</strong><p>沉淀失败案例，分析原因，反哺 Agent 流程优化。</p></article></div></section>
+        <nav class="pager"><a href="projects.html"><i data-lucide="chevron-left"></i>上一页<br />AI 项目</a><a href="pet-miniapp.html">下一个<br />宠物店小程序<i data-lucide="chevron-right"></i></a></nav>
+      </main>
+    </div>
+  </body>
+</html>

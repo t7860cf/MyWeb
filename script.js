@@ -1,3 +1,22 @@
+function redirectMobileVisitors() {
+  const mobileQuery = window.matchMedia?.("(max-width: 768px)");
+  const isMobileViewport = Boolean(mobileQuery?.matches);
+  const isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+  if (!isMobileViewport && !isMobileDevice) {
+    return;
+  }
+
+  if (location.pathname.includes("/mobile-site/")) {
+    return;
+  }
+
+  const basePath = location.pathname.replace(/[^/]*$/, "");
+  location.replace(`${location.origin}${basePath}mobile-site/index.html`);
+}
+
+redirectMobileVisitors();
+
 const navItems = [
   ["index.html", "首页"],
   ["delivery-method.html", "交付链路"],
@@ -13,58 +32,6 @@ const projectPageSet = new Set([
   "pet-miniapp.html",
   "coze-video.html",
 ]);
-
-const prototypePages = {
-  "projects.html": { src: "assets/prototypes/projects.png", width: 1652, height: 952 },
-  "delivery-method.html": { src: "assets/prototypes/delivery-method.png", width: 1536, height: 1024 },
-  "enterprise-rag.html": { src: "assets/prototypes/enterprise-rag.png", width: 1536, height: 1024 },
-  "agentops-studio.html": { src: "assets/prototypes/agentops-studio.png", width: 1536, height: 1024 },
-  "pet-miniapp.html": { src: "assets/prototypes/pet-miniapp.png", width: 1536, height: 1024 },
-  "coze-video.html": { src: "assets/prototypes/coze-video.png", width: 1536, height: 1024 },
-  "pm-delivery.html": { src: "assets/prototypes/pm-delivery.png", width: 1536, height: 1024 },
-  "resume.html": { src: "assets/prototypes/resume.png", width: 1536, height: 1024 },
-  "contact.html": { src: "assets/prototypes/contact.png", width: 1626, height: 967 },
-};
-
-const headerHotspots = [
-  ["index.html", 30.2, 1.4, 5.6, 7.2, "首页"],
-  ["delivery-method.html", 36.9, 1.4, 7.4, 7.2, "交付链路"],
-  ["projects.html", 44.5, 1.4, 6.8, 7.2, "AI项目"],
-  ["pm-delivery.html", 52.3, 1.4, 7.2, 7.2, "政企交付"],
-  ["resume.html", 59.9, 1.4, 5.8, 7.2, "简历"],
-  ["contact.html", 66.3, 1.4, 6.9, 7.2, "联系我"],
-  ["projects.html", 85.6, 1.4, 12.4, 6.8, "查看项目档案"],
-];
-
-const prototypeHotspots = {
-  "index.html": [
-    ["projects.html", 3.3, 60.8, 11, 6.2, "首页查看项目档案"],
-    ["contact.html", 15.1, 60.8, 10, 6.2, "首页联系我"],
-    ["enterprise-rag.html", 72.5, 17.5, 24.8, 14.5, "企业级 RAG"],
-    ["agentops-studio.html", 72.5, 33.3, 24.8, 14.5, "AgentOps Studio"],
-    ["pet-miniapp.html", 72.5, 49.1, 24.8, 14.5, "宠物店小程序"],
-    ["coze-video.html", 72.5, 64.7, 24.8, 14.5, "Coze 视频工作流"],
-  ],
-  "projects.html": [
-    ["enterprise-rag.html", 1.4, 30.6, 47.8, 28.5, "企业级 RAG"],
-    ["agentops-studio.html", 50.4, 30.6, 47.8, 28.5, "AgentOps Studio"],
-    ["pet-miniapp.html", 1.4, 61.0, 47.8, 28.4, "宠物店小程序"],
-    ["coze-video.html", 50.4, 61.0, 47.8, 28.4, "Coze 视频工作流"],
-  ],
-  "enterprise-rag.html": [["projects.html", 2.2, 88.8, 12.8, 4.2, "返回项目列表"]],
-  "agentops-studio.html": [["projects.html", 2.2, 88.8, 12.8, 4.2, "返回项目列表"]],
-  "pet-miniapp.html": [["projects.html", 2.2, 88.8, 12.8, 4.2, "返回项目列表"]],
-  "coze-video.html": [["projects.html", 2.2, 88.8, 12.8, 4.2, "返回项目列表"]],
-  "pm-delivery.html": [["resume.html", 2.4, 88.3, 14.0, 4.8, "查看简历"]],
-  "resume.html": [
-    ["contact.html", 78.2, 73.0, 17.8, 5.8, "联系我"],
-    ["projects.html", 42.0, 81.0, 28.0, 15.0, "AI 项目经验"],
-  ],
-  "contact.html": [
-    ["resume.html", 33.3, 46.5, 24.0, 7.8, "获取完整简历"],
-    ["projects.html", 33.3, 56.0, 24.0, 7.8, "查看项目档案"],
-  ],
-};
 
 const projectCards = [
   {
@@ -417,8 +384,7 @@ function renderFixedHeader(page) {
 function mount(content, page = currentPage()) {
   const app = document.querySelector("#app");
   const fullScreenPages = new Set(["index.html", "delivery-method.html", "projects.html", "pm-delivery.html", "resume.html", "contact.html", "enterprise-rag.html", "agentops-studio.html", "pet-miniapp.html", "coze-video.html"]);
-  document.body.classList.remove("has-prototype", "home-real", "delivery-real", "projects-real", "pm-real", "resume-real", "contact-real", "rag-real", "agent-real", "pet-real", "coze-real");
-  document.querySelector(".prototype-layer")?.remove();
+  document.body.classList.remove("home-real", "delivery-real", "projects-real", "pm-real", "resume-real", "contact-real", "rag-real", "agent-real", "pet-real", "coze-real");
   document.body.classList.toggle("home-real", page === "index.html");
   document.body.classList.toggle("delivery-real", page === "delivery-method.html");
   document.body.classList.toggle("projects-real", page === "projects.html");
@@ -430,34 +396,6 @@ function mount(content, page = currentPage()) {
   document.body.classList.toggle("pet-real", page === "pet-miniapp.html");
   document.body.classList.toggle("coze-real", page === "coze-video.html");
   app.innerHTML = fullScreenPages.has(page) ? `${renderFixedHeader(page)}${content}` : `${renderHeader(page)}<main class="page-shell">${content}</main>`;
-  if (!fullScreenPages.has(page)) {
-    renderPrototypeLayer(page);
-  }
-}
-
-function renderPrototypeLayer(page) {
-  const proto = prototypePages[page];
-  if (!proto) {
-    return;
-  }
-
-  document.querySelector(".prototype-layer")?.remove();
-  document.body.classList.add("has-prototype");
-
-  const ratio = proto.width / proto.height;
-  const hotspots = [...headerHotspots, ...(prototypeHotspots[page] || [])];
-  const layer = document.createElement("div");
-  layer.className = "prototype-layer";
-  layer.setAttribute("aria-hidden", "false");
-  layer.innerHTML = `
-    <div class="prototype-frame" style="--proto-ratio: ${ratio};">
-      <img src="${proto.src}" width="${proto.width}" height="${proto.height}" alt="" />
-      ${hotspots.map(([href, left, top, width, height, label]) => `
-        <a class="prototype-hotspot" href="${href}" aria-label="${label}" style="left:${left}%;top:${top}%;width:${width}%;height:${height}%;"></a>
-      `).join("")}
-    </div>
-  `;
-  document.body.appendChild(layer);
 }
 
 function visualCard(item) {
