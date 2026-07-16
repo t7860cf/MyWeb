@@ -1230,6 +1230,11 @@ function renderEnterpriseRag() {
               <p>${icon(ic)}<span>${label}</span><strong>${value}</strong></p>
             `).join("")}
           </section>
+          <a class="project-prd-card rag-prd-card" href="assets/documents/rag-prd.pdf" target="_blank" rel="noopener noreferrer" aria-label="在新标签打开 RAG 知识资产平台 PRD">
+            ${icon("file-text")}
+            <span><strong>产品 PRD</strong><small>查看需求文档</small></span>
+            ${icon("arrow-up-right")}
+          </a>
           <a class="rag-back" href="projects.html">← 返回项目列表</a>
         </aside>
 
@@ -1390,6 +1395,11 @@ function renderAgentOpsStudio() {
             <h3>项目信息</h3>
             ${facts.map(([ic, label, value]) => `<p>${icon(ic)}<span>${label}</span><strong>${value}</strong></p>`).join("")}
           </section>
+          <a class="project-prd-card agent-prd-card" href="assets/documents/agentops-prd.pdf" target="_blank" rel="noopener noreferrer" aria-label="在新标签打开多 Agent 协作产品 PRD">
+            ${icon("file-text")}
+            <span><strong>产品 PRD</strong><small>查看需求文档</small></span>
+            ${icon("arrow-up-right")}
+          </a>
           <a class="agent-back" href="projects.html">← 返回项目列表</a>
         </aside>
 

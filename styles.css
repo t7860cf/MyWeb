@@ -4483,7 +4483,7 @@ body.rag-real::after {
 .rag-back {
   position: absolute;
   left: 13px;
-  bottom: 73px;
+  bottom: 15px;
   display: flex;
   width: 202px;
   height: 37px;
@@ -4495,6 +4495,63 @@ body.rag-real::after {
   background: rgba(5, 21, 43, 0.35);
   font-size: 13px;
   font-weight: 650;
+}
+
+.project-prd-card {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 22px 1fr 15px;
+  align-items: center;
+  gap: 9px;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid rgba(61, 190, 255, 0.36);
+  border-radius: 5px;
+  color: #dceeff;
+  background: linear-gradient(90deg, rgba(9, 62, 121, 0.58), rgba(4, 24, 52, 0.5));
+}
+
+.project-prd-card > svg {
+  width: 18px;
+  height: 18px;
+  color: #4ad0ff;
+  stroke-width: 1.8;
+}
+
+.project-prd-card > svg:last-child {
+  width: 14px;
+  height: 14px;
+  color: #8db9e8;
+}
+
+.project-prd-card span {
+  display: grid;
+  gap: 2px;
+}
+
+.project-prd-card strong {
+  color: #f6fbff;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 850;
+}
+
+.project-prd-card small {
+  color: #91b4d8;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.project-prd-card:hover {
+  border-color: #4ad0ff;
+  background: linear-gradient(90deg, rgba(12, 85, 157, 0.72), rgba(5, 35, 76, 0.6));
+}
+
+.rag-prd-card {
+  left: 13px;
+  bottom: 69px;
+  width: 202px;
 }
 
 .rag-main {
@@ -5226,7 +5283,7 @@ body.agent-real::after {
 .agent-back {
   position: absolute;
   left: 12px;
-  bottom: 72px;
+  bottom: 15px;
   display: flex;
   width: 192px;
   height: 38px;
@@ -5238,6 +5295,12 @@ body.agent-real::after {
   background: rgba(5, 21, 43, 0.35);
   font-size: 13px;
   font-weight: 650;
+}
+
+.agent-prd-card {
+  left: 12px;
+  bottom: 69px;
+  width: 192px;
 }
 
 .agent-main {
